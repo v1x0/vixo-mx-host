@@ -4,7 +4,7 @@ module.exports = withNativeFederation({
   name: 'vixo-mx-host',
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({ singleton: true, strictVersion: false, requiredVersion: 'auto' }),
   },
 
   skip: [
