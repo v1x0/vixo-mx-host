@@ -1,0 +1,121 @@
+{
+  "name": "vixo-mx-host",
+  "shared": [
+    {
+      "packageName": "@angular/common",
+      "outFileName": "_angular_common.B28_RJXnI3.js",
+      "requiredVersion": "^21.0.8",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.1.0"
+    },
+    {
+      "packageName": "@angular/common/http",
+      "outFileName": "_angular_common_http.NntC2TUM6k.js",
+      "requiredVersion": "^21.0.8",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.1.0"
+    },
+    {
+      "packageName": "@angular/core",
+      "outFileName": "_angular_core.Pfax1TslUg.js",
+      "requiredVersion": "^21.0.8",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.1.0"
+    },
+    {
+      "packageName": "@angular/core/primitives/di",
+      "outFileName": "_angular_core_primitives_di.aHztP1HTHb.js",
+      "requiredVersion": "^21.0.8",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.1.0"
+    },
+    {
+      "packageName": "@angular/core/primitives/signals",
+      "outFileName": "_angular_core_primitives_signals.8AsakeaSFE.js",
+      "requiredVersion": "^21.0.8",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.1.0"
+    },
+    {
+      "packageName": "@angular/platform-browser",
+      "outFileName": "_angular_platform_browser.61GQYAiK7Y.js",
+      "requiredVersion": "^21.0.8",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.1.0"
+    },
+    {
+      "packageName": "@angular/router",
+      "outFileName": "_angular_router.VvVrjkENVh.js",
+      "requiredVersion": "^21.0.8",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "21.1.0"
+    },
+    {
+      "packageName": "rxjs",
+      "outFileName": "rxjs.VW59_bwQQr.js",
+      "requiredVersion": "~7.8.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "7.8.2"
+    },
+    {
+      "packageName": "rxjs/operators",
+      "outFileName": "rxjs_operators.qDxVF6Knqs.js",
+      "requiredVersion": "~7.8.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "7.8.2"
+    },
+    {
+      "packageName": "tslib",
+      "outFileName": "tslib.9kB3GIbOj-.js",
+      "requiredVersion": "^2.3.0",
+      "singleton": true,
+      "strictVersion": true,
+      "version": "2.8.1"
+    },
+    {
+      "singleton": true,
+      "strictVersion": false,
+      "requiredVersion": "0.0.0",
+      "packageName": "@nf-internal/chunk-S56HBTK5",
+      "outFileName": "chunk-S56HBTK5.js"
+    },
+    {
+      "singleton": true,
+      "strictVersion": false,
+      "requiredVersion": "0.0.0",
+      "packageName": "@nf-internal/chunk-SLWIJEXV",
+      "outFileName": "chunk-SLWIJEXV.js"
+    },
+    {
+      "singleton": true,
+      "strictVersion": false,
+      "requiredVersion": "0.0.0",
+      "packageName": "@nf-internal/chunk-DBZSGTSI",
+      "outFileName": "chunk-DBZSGTSI.js"
+    },
+    {
+      "singleton": true,
+      "strictVersion": false,
+      "requiredVersion": "0.0.0",
+      "packageName": "@nf-internal/chunk-KNUKVBCT",
+      "outFileName": "chunk-KNUKVBCT.js"
+    },
+    {
+      "singleton": true,
+      "strictVersion": false,
+      "requiredVersion": "0.0.0",
+      "packageName": "@nf-internal/chunk-4CLCTAJ7",
+      "outFileName": "chunk-4CLCTAJ7.js"
+    }
+  ],
+  "exposes": []
+}
