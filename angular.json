@@ -57,11 +57,18 @@
 							}
 						],
 						"styles": [
-							"src/styles.scss"
+							"src/styles.scss",
+							"https://v1x0.github.io/resume-project/styles-VYTIYNV3.css"
 						],
 						"polyfills": [
 							"es-module-shims"
-						]
+						],
+						"optimization": {
+							"styles": {
+								"minify": true,
+								"inlineCritical": false
+							}
+						}
 					},
 					"configurations": {
 						"production": {

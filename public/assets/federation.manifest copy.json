@@ -1,5 +1,5 @@
 {
     "walletApp": "https://v1x0.github.io/wallet/remoteEntry.json",
     "resumeApp": "https://v1x0.github.io/resume-project/remoteEntry.json",
-    "components-shared": "http://localhost:4201/remoteEntry.json"
+    "components-shared": "/v1/shared/remoteEntry.json"
 }
