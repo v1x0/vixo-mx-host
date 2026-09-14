@@ -1,4 +1,4 @@
-import { environment } from "./environments/enviroment";
+import { environment } from "./environments/environment";
 
 export const manifest = {
   "wallet-angular": `${environment.walletAngular.baseUrl}/${environment.walletAngular.remoteEntry}`,
