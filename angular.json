@@ -19,10 +19,21 @@
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
-					"options": {},
+          "options": {
+            "styles": [
+              "src/material-theme.scss"
+            ],
+						"fileReplacements": []
+          },
 					"configurations": {
 						"production": {
-							"target": "vixo-mx-host:esbuild:production"
+							"target": "vixo-mx-host:esbuild:production",
+							"fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
 						},
 						"development": {
 							"target": "vixo-mx-host:esbuild:development",

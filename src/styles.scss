@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+vixo-balance-ui, 
+vixo-transaction-item-ui, 
+vixo-transaction-dialog-ui {
+  display: block !important;
+  width: 100% !important;
+  min-height: 50px; /* Le da una altura mínima inicial para que el navegador lo dibuje obligatoriamente */
+  visibility: visible !important;
+  opacity: 1 !important;
+}
