@@ -1,3 +1,8 @@
+/* En el src/styles.scss de tu WALLET o de tu HOST */
+
+// 🚀 Forzamos la inclusión del tema Indigo-Pink de Angular Material de forma global
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
 /* You can add global styles to this file, and also import other style files */
 vixo-balance-ui, 
 vixo-transaction-item-ui, 

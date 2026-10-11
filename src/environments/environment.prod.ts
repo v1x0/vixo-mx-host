@@ -1,11 +1,11 @@
 export const environment = {
-  production: false,
+  production: true,
   walletAngular: {
     baseUrl: '/v1/wallet',
     remoteEntry: 'remoteEntry.json'
   },
   componentsShared: {
-    baseUrl: '/v1/shared',
+    baseUrl: '/v1/shared', // 🚀 Fuerza el dominio real de producción
     remoteEntry: 'remoteEntry.json'
   },
   resumeApp: {
