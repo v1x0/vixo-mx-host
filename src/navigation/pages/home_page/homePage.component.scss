@@ -1,0 +1,74 @@
+// Colors and typography come from the Angular Material theme (--mat-sys-*)
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 16px;
+
+  &__title {
+    margin: 0;
+    font: var(--mat-sys-headline-medium);
+  }
+
+  &__roles {
+    margin: 4px 0 0;
+    font: var(--mat-sys-body-medium);
+    color: var(--mat-sys-on-surface-variant);
+  }
+
+  &__subtitle {
+    margin: 8px 0 0;
+    font: var(--mat-sys-title-large);
+  }
+
+  &__empty mat-card-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--mat-sys-on-surface-variant);
+  }
+
+  &__apps {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 16px;
+    border: 1px solid var(--mat-sys-outline-variant);
+    border-radius: var(--mat-sys-corner-medium);
+    background: var(--mat-sys-surface-container-low);
+    color: var(--mat-sys-on-surface);
+    text-decoration: none;
+
+    &:hover {
+      background: var(--mat-sys-surface-container);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--mat-sys-primary);
+      outline-offset: 2px;
+    }
+  }
+
+  &__app-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: var(--mat-sys-primary);
+  }
+
+  &__app-title {
+    font: var(--mat-sys-title-medium);
+  }
+}

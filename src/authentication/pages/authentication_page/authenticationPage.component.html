@@ -1,0 +1,28 @@
+<section class="authentication" aria-label="Autenticación">
+  @if (!user()) {
+    @switch (remoteState()) {
+      @case ('loading') {
+        <div class="authentication__status" role="status">
+          <mat-spinner diameter="40" />
+          <span>Cargando…</span>
+        </div>
+      }
+      @case ('error') {
+        <mat-card class="authentication__error" appearance="outlined" role="alert">
+          <mat-card-content class="authentication__error-content">
+            <mat-icon aria-hidden="true">cloud_off</mat-icon>
+            <p class="authentication__text">
+              La autenticación no está disponible temporalmente. Inténtalo de nuevo en unos minutos.
+            </p>
+            <button mat-flat-button type="button" class="authentication__retry" (click)="retry()">
+              Reintentar
+            </button>
+          </mat-card-content>
+        </mat-card>
+      }
+    }
+
+    <!-- The login feature (./Login or ./PasswordRecovery of mfe-login) is created here -->
+    <ng-container #featureOutlet />
+  }
+</section>

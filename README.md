@@ -1,60 +1,46 @@
 # VixoMxHost
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.5.
-Repositorio para tener un host para los microfrontends
+Shell (integrator) of the Vixo MX platform: an Angular + Native Federation **dynamic host** that integrates feature MFEs and component libraries, authenticates through the BFF and shares the platform contracts (`@vixo/platform-contracts`). It exposes nothing.
 
-## Development server
+## UI libraries
 
-To start a local development server, run:
+- The shell UI (layout, menu, home, error pages) uses **Angular Material**.
+- **PrimeNG** is shared as a singleton only for the feature MFEs that use it (wallet, resume). The shell configures it once (`providePrimeNG` in `app.config.ts`); features never change the theme.
 
-```bash
-ng serve
-```
+## Configuration per environment
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The same build works in every environment. At startup the shell reads:
 
-## Code scaffolding
+| File | Content |
+|---|---|
+| `config/federation.manifest.json` | Remote name → `remoteEntry.json` URL (feature MFEs and the component libraries they use) |
+| `config/mfe.registry.json` | Route-based feature MFEs: path, title, icon and roles |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Development: `config/development/` (copied by `ng serve` only).
+- Production: published by the deployment under `/config/` (`config/production/`, see `deploy.sh`).
 
-```bash
-ng generate component component-name
-```
+## Running locally
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+| Process | Port | Command |
+|---|---|---|
+| Mock BFF (development only) | 4300 | `npm run mock-bff` |
+| `mfe-login` | 4202 | `npm start` in the mfe-login project |
+| `libreria-personal` (optional; mfe-login falls back to Material inputs) | 4201 | `npm start` in the library project |
+| Shell | 4200 | `npm start` |
 
-```bash
-ng generate --help
-```
+The dev server proxies `/bff` to the mock BFF (`proxy.conf.json`), so the session cookie is same-origin. The test users are defined in `mock-bff/server.mjs` and are valid only there.
 
-## Building
+Never run `ng build` while the dev server is running, and restart it after changing `federation.config.mjs`.
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Tests
 
 ```bash
-ng test
+npm test -- --watch=false
 ```
 
-## Running end-to-end tests
+Includes the router integration test: an unauthorized navigation never downloads the feature MFE.
 
-For end-to-end (e2e) testing, run:
+## Adding a route-based feature MFE
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Add its `remoteEntry.json` URL to `config/<environment>/federation.manifest.json`.
+2. Add its entry to `config/<environment>/mfe.registry.json`. No shell code changes.

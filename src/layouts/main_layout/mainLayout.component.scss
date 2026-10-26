@@ -1,0 +1,87 @@
+// Colors and typography come from the Angular Material theme (--mat-sys-*)
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__toolbar {
+    gap: 8px;
+    background: var(--mat-sys-primary);
+    color: var(--mat-sys-on-primary);
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 16px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &__logo {
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font: var(--mat-sys-title-large);
+  }
+
+  &__nav {
+    display: flex;
+    gap: 4px;
+    min-width: 0;
+    overflow-x: auto;
+    // Se puede desplazar con el dedo o la rueda, sin la barra nativa dentro de la toolbar
+    scrollbar-width: none;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  &__link--active {
+    background: color-mix(in srgb, var(--mat-sys-on-primary) 16%, transparent);
+  }
+
+  &__spacer {
+    flex: 1;
+  }
+
+  &__user {
+    font: var(--mat-sys-body-medium);
+    white-space: nowrap;
+  }
+
+  &__logout {
+    color: inherit;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 720px) {
+  .layout__user,
+  .layout__title {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout__brand {
+    margin-right: 0;
+  }
+
+  .layout__logout-label {
+    display: none;
+  }
+}
