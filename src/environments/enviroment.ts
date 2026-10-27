@@ -8,6 +8,10 @@ export const environment = {
     baseUrl: 'http://localhost:4202',
     remoteEntry: 'remoteEntry.json'
   },
+  auth_mfe: {
+    baseUrl: 'http://localhost:4203',
+    remoteEntry: 'main.js'
+  },
   resumeApp: {
     baseUrl: 'https://v1x0.github.io',
     remoteEntry: 'resume-project/remoteEntry.json'
