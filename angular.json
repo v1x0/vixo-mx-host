@@ -91,7 +91,18 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "public"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "config/production",
+                  "output": "config"
+                }
+              ]
             },
             "development": {
               "optimization": false,

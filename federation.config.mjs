@@ -15,8 +15,6 @@ export default withNativeFederation({
     build: 'package',
   })
     .patch(['@angular/*'], { includeSecondaries: { keepAll: true } })
-    // Theme presets ('@primeuix/themes/aura') are exported through a "./*" wildcard
-    .patch(['@primeuix/themes'], { includeSecondaries: { keepAll: true, resolveGlob: true } })
     .get(),
 
   skip: [
@@ -28,9 +26,6 @@ export default withNativeFederation({
     (pkg) => /^@angular\/(cdk|material)\/(schematics|testing)/.test(pkg),
     // JIT compiler: the application is compiled AOT
     '@angular/compiler',
-    // PrimeNG entry points that need optional peers the shell does not install (chart.js, quill)
-    'primeng/chart',
-    'primeng/editor',
   ],
 
   // Please read our docs about configuring native federation:
@@ -38,7 +33,7 @@ export default withNativeFederation({
 
   features: {
     // The shell must share everything its remotes may need, even if it does not use it
-    // (e.g. PrimeNG for wallet and resume, @angular/forms for Material forms in remotes)
+    // (e.g. @angular/forms for Material forms in remotes)
     ignoreUnusedDeps: false,
     denseChunking: true,
     denseExternals: true,

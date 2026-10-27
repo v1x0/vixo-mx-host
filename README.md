@@ -5,7 +5,7 @@ Shell (integrator) of the Vixo MX platform: an Angular + Native Federation **dyn
 ## UI libraries
 
 - The shell UI (layout, menu, home, error pages) uses **Angular Material**.
-- **PrimeNG** is shared as a singleton only for the feature MFEs that use it (wallet, resume). The shell configures it once (`providePrimeNG` in `app.config.ts`); features never change the theme.
+- The shell does not install or share PrimeNG (PrimeUI requires a commercial license). A feature MFE that uses it brings its own copy and configures it itself.
 
 ## Configuration per environment
 
@@ -17,7 +17,7 @@ The same build works in every environment. At startup the shell reads:
 | `config/mfe.registry.json` | Route-based feature MFEs: path, title, icon and roles |
 
 - Development: `config/development/` (copied by `ng serve` only).
-- Production: published by the deployment under `/config/` (`config/production/`, see `deploy.sh`).
+- Production: `config/production/`, copied into the build output as `config/` (Raspberry Pi reverse proxy paths).
 
 ## Running locally
 
@@ -39,6 +39,23 @@ npm test -- --watch=false
 ```
 
 Includes the router integration test: an unauthorized navigation never downloads the feature MFE.
+
+## Raspberry Pi deployment
+
+1. `npm run build`. The production build includes `config/production` as `config/`.
+2. Copy `dist/vixo-mx-host/browser` to `proyectos/sitio_a/shell/vixo-mx-host/browser` on the Pi. The `mfe-a-shell` nginx container serves it as is.
+
+The Pi's compose must provide, behind the reverse proxy (same origin as the shell):
+
+| Path | Service |
+|---|---|
+| `/` | `mfe-a-shell` (`shell-mfe.conf` falls back to `index.html` for deep links such as `/wallet`) |
+| `/bff/` | The BFF (cookie session + `X-CSRF-Token`, see `mock-bff/server.mjs` for the contract) |
+| `/mfe/auth/` | `mfe-login` remote (`./Login`, `./PasswordRecovery`) |
+| `/mfe/wallet/` | `walletApp` remote |
+| `/mfe/shared/` | `components-shared` remote |
+
+Changing those paths only requires editing `config/*.json` in the copied folder, no rebuild.
 
 ## Adding a route-based feature MFE
 

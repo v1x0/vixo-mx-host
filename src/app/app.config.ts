@@ -5,8 +5,6 @@ import {
   provideAppInitializer,
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
-import Aura from '@primeuix/themes/aura';
-import { providePrimeNG } from 'primeng/config';
 import { csrfInterceptor } from '../authentication/interceptors/csrf_interceptor/csrfInterceptor.interceptor';
 import { sessionExpiredInterceptor } from '../authentication/interceptors/session_expired_interceptor/sessionExpiredInterceptor.interceptor';
 import { AuthenticationService } from '../authentication/services/authentication_service/authenticationService.service';
@@ -20,8 +18,5 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([csrfInterceptor, sessionExpiredInterceptor])),
     provideAppInitializer(() => inject(AuthenticationService).restoreSession()),
     providePlatformContracts(),
-    // The shell UI uses Angular Material. PrimeNG is configured here once, only for the
-    // feature MFEs that use it (wallet, resume); features never change the theme.
-    providePrimeNG({ theme: { preset: Aura }, license: 'unlicensed' }),
   ],
 };
