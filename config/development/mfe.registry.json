@@ -1,0 +1,18 @@
+[
+  {
+    "remoteName": "walletApp",
+    "exposedModule": "./routes",
+    "path": "wallet",
+    "title": "Wallet",
+    "icon": "account_balance_wallet",
+    "roles": []
+  },
+  {
+    "remoteName": "resumeApp",
+    "exposedModule": "./routes",
+    "path": "resume",
+    "title": "Resume",
+    "icon": "description",
+    "roles": []
+  }
+]

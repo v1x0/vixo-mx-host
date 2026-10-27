@@ -1,7 +1,10 @@
 import { initFederation } from '@angular-architects/native-federation';
-import { manifest } from './federation.manifest';
 
-initFederation(manifest)
-  .catch(err => console.error(err))
-  .then(_ => import('./bootstrap'))
-  .catch(err => console.error(err));
+initFederation('config/federation.manifest.json')
+  // If federation fails, the shell boots anyway and remote loading rejects with a clear error
+  .catch((err) => {
+    console.error(err);
+    return null;
+  })
+  .then((federation) => import('./bootstrap').then((m) => m.bootstrap(federation)))
+  .catch((err) => console.error(err));

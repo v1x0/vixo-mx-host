@@ -1,0 +1,13 @@
+<section class="unavailable">
+  <mat-card appearance="outlined" class="unavailable__card" role="alert">
+    <mat-card-content class="unavailable__content">
+      <mat-icon class="unavailable__icon" aria-hidden="true">cloud_off</mat-icon>
+      <h1 class="unavailable__title">{{ mfeTitle }} no está disponible</h1>
+      <p class="unavailable__text">No pudimos cargar este microfrontend. Inténtalo de nuevo en unos minutos.</p>
+      <div class="unavailable__actions">
+        <button mat-flat-button type="button" class="unavailable__retry" (click)="retry()">Reintentar</button>
+        <a mat-button routerLink="/home">Ir al inicio</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>

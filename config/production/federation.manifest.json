@@ -1,0 +1,5 @@
+{
+  "mfe-login": "/mfe/auth/remoteEntry.json",
+  "walletApp": "/mfe/wallet/remoteEntry.json",
+  "components-shared": "/mfe/shared/remoteEntry.json"
+}

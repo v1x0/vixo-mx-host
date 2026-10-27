@@ -1,0 +1,51 @@
+// Colors and typography come from the Angular Material theme (--mat-sys-*)
+:host {
+  display: flex;
+  flex: 1;
+}
+
+.unavailable {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+
+  &__card {
+    width: 100%;
+    max-width: 440px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    font-size: 48px;
+    color: var(--mat-sys-error);
+  }
+
+  &__title {
+    margin: 0;
+    font: var(--mat-sys-headline-small);
+  }
+
+  &__text {
+    margin: 0;
+    font: var(--mat-sys-body-medium);
+    color: var(--mat-sys-on-surface-variant);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+}
